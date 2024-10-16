@@ -1,33 +1,66 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <link href="other.css">
+    </head> 
         <title>
             Open door website
         </title>
+        <style>
+            body{
+                background-color: white;
+            }
+            form{
+                text-align: center;
+            }
+            input{
+                margin-top: 100px;
+                margin-bottom: 100px;
+            }
+            button{
+                margin-top: 100px;
+                margin-bottom: 100px;
+            }
+        </style>
         <body>
             Enter the password to open wefald 819
             <script type="text/javascript">
-                var password = "NgiE3a3yqZ91!"
+               var password = "NgiE3a3yqZ91!"
+               var attempts = 0;
                function getInput(){
                 var input = document.getElementById("fpassword").value;
                 return input;
                }
-               function checkPassword(){
+                function checkPassword(){
                 var input = getInput();
                 if(input == password){
                     alert("Password is correct");
                 }
                 else{
-                    alert("Password is incorrect. Nice try you aint getting in!")
-                }
-                }
+                    attempts++;
+                    if(attempts>= 2 ){
+
+                        alert("The password is incorrect. You have used all your attempts this program will close itslelf now!");
+                        window.close();
+                        
+                    }
+                    else{
+                        alert("Password is incorrect. Nice try you aint getting in!");
+                        if(!alert("Password is incorrect. Nice try you aint getting in!")){window.location.reload();}
+                        
+                    }
+
+                    
+
+                }}
             </script>
     
-        <form action="/action_page.php" onsubmit="checkPassword(); return false;">
-            <input type="password" id="fpassword" name="fpassword">
+        <form action="/action_page.php" onsubmit=checkPassword(); return false;>
             <label for="fpassword">Password:</label>
+            <input type="password" id="fpassword" name="fpassword">
             <button type="Enter">Submit</button>
         </form>
         </body>
-    </head>
+    
 </html>
