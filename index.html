@@ -1,56 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link href="other.css">
-    </head> 
-        <title>
-            Open door website
-        </title>
-        <style>
-            body{
-                background-color: white;
-            }
-            form{
-                text-align: center;
-            }
-            input{
-                margin-top: 100px;
-                margin-bottom: 100px;
-            }
-            button{
-                margin-top: 100px;
-                margin-bottom: 100px;
-            }
-        </style>
-        <body>
-            Enter the password to open wefald 819
-            <script type="text/javascript">
-               var password = "NgiE3a3yqZ91!"
-               
-               function getInput(){
-                var input = document.getElementById("fpassword").value;
-                return input;
-               }
-                function checkPassword(){
-                var input = getInput();
-                if(input == password){
-                    alert("Correct password");
-                    window.location = "index.html";
-                    
-                }
-                else{
-                     alert("The password is incorrect you will not be getting in! The window will close now.");
-                        window.close();
+<head>
+    <meta charset="UTF-8">
+    <link href="other.css" rel="stylesheet">
+    <title>Open Door Website</title>
+    <style>
+        body {
+            background-color: white;
+        }
+        form {
+            text-align: center;
+        }
+        input {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+        button {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter the password to open wefald 819</h2>
+    <script type="text/javascript">
+        var password = "NgiE3a3yqZ91!";
 
-                }}
-            </script>
-    
-        <form action="/action_page.php" onsubmit=checkPassword(); return false;>
-            <label for="fpassword">Password:</label>
-            <input type="password" id="fpassword" name="fpassword">
-            <button type="Enter">Submit</button>
-        </form>
-        </body>
-    
+        function getInput() {
+            var input = document.getElementById("fpassword").value;
+            return input;
+        }
+
+        function checkPassword(event) {
+            event.preventDefault(); // Prevent form submission
+            var input = getInput();
+            if (input === password) {
+                alert("Correct password has been entered ");
+                window.location = "index.html"; // Redirect on correct password
+            } else {
+                alert("The password is incorrect. You will not be getting in! The window will close now.");
+                window.close(); // Close the window on incorrect password
+            }
+        }
+    </script>
+    <form onsubmit="checkPassword(event);">
+        <label for="fpassword">Password:</label>
+        <input type="password" id="fpassword" name="fpassword">
+        <button type="submit">Submit</button>
+    </form>
+</body>
 </html>
