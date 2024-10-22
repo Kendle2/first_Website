@@ -27,7 +27,7 @@
             Enter the password to open wefald 819
             <script type="text/javascript">
                var password = "NgiE3a3yqZ91!"
-               var attempts = 0;
+               
                function getInput(){
                 var input = document.getElementById("fpassword").value;
                 return input;
@@ -35,23 +35,13 @@
                 function checkPassword(){
                 var input = getInput();
                 if(input == password){
-                    alert("Password is correct");
+                    alert("Correct password");
+                    window.location = "index.html";
+                    
                 }
                 else{
-                    attempts++;
-                    if(attempts>= 2 ){
-
-                        alert("The password is incorrect. You have used all your attempts this program will close itslelf now!");
+                     alert("The password is incorrect you will not be getting in! The window will close now.");
                         window.close();
-                        
-                    }
-                    else{
-                        alert("Password is incorrect. Nice try you aint getting in!");
-                        if(!alert("Password is incorrect. Nice try you aint getting in!")){window.location.reload();}
-                        
-                    }
-
-                    
 
                 }}
             </script>
